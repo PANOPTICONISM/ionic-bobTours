@@ -2,14 +2,13 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-      </ion-buttons>
-    <ion-title>Details</ion-title>
+    </ion-buttons>
+    <ion-title>{{ tour.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button routerLink="/request"
-  routerDirection="forward">
-  Request a Tour
+  <ion-button routerLink="/request" routerDirection="forward">
+    Request a Tour
   </ion-button>
- </ion-content>
+</ion-content>

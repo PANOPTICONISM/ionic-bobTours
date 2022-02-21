@@ -9,12 +9,15 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let tour of tours" [routerLink]="['/details', tour]" routerDirection="forward">
+    <ion-item
+      *ngFor="let tour of tours"
+      [routerLink]="['/details', tour]"
+      routerDirection="forward"
+    >
       {{ tour.title }}
     </ion-item>
   </ion-list>
-  <ion-button routerLink="/details"
- routerDirection="forward">
- Show details
- </ion-button>
+  <ion-button routerLink="/details" routerDirection="forward">
+    Show details
+  </ion-button>
 </ion-content>
