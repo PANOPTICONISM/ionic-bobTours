@@ -13,21 +13,21 @@ export class FavoritesService {
 
   initialize(tours: Array<Tour>) {
     this.favTours = [];
-    //this.favIDs = JSON.parse(window.localStorage.getItem('FavoritesIDs'));
-    // this.storage.ready().then(() => {
-    //   this.storage.get('FavoritesIDs').then(ids => {
-    //     this.favIDs = ids;
-    //     if (this.favIDs == null) {
-    //       this.favIDs = [];
-    //     } else {
-    //       this.favIDs.forEach(favID => {
-    //         let tour = tours.filter(t => t.ID == favID)[0];
-    //         tour.IsFavorite = true;
-    //         this.favTours.push(tour);
-    //       });
-    //     }
-    //   });
-    // });
+    this.favIDs = JSON.parse(window.localStorage.getItem('FavoritesIDs'));
+    this.storage.create().then(() => {
+      this.storage.get('FavoritesIDs').then((ids) => {
+        this.favIDs = ids;
+        if (this.favIDs == null) {
+          this.favIDs = [];
+        } else {
+          this.favIDs.forEach((favID) => {
+            let tour = tours.filter((t) => t.ID == favID)[0];
+            tour.IsFavorite = true;
+            this.favTours.push(tour);
+          });
+        }
+      });
+    });
   }
 
   add(tour) {

@@ -73,15 +73,15 @@ export class AppComponent implements OnInit {
 
   // Load settings
   loadSettings() {
-    // this.storage.ready().then(() => {
-    //   this.storage.get('settings').then(settings => {
-    //     if (settings == null) {
-    //       this.settings.style = 'summer-style';
-    //     } else {
-    //       this.settings = settings;
-    //     }
-    //   });
-    // });
+    this.storage.create().then(() => {
+      this.storage.get('settings').then((settings) => {
+        if (settings == null) {
+          this.settings.style = 'summer-style';
+        } else {
+          this.settings = settings;
+        }
+      });
+    });
   }
 
   // User has changed his/her settings.
