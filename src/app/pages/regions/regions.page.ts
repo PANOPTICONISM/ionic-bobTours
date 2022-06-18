@@ -8,18 +8,15 @@ import _ from 'lodash';
   styleUrls: ['./regions.page.scss'],
 })
 export class RegionsPage implements OnInit {
+  regions: any;
 
-  //regions: any;
-
-  constructor(public btService: BobToursService) { }
+  constructor(public btService: BobToursService) {}
 
   ngOnInit() {
-    /* this.regions = this.btService.regions;
-    this.regions.forEach(region => {
-      const tours =
-        _.filter(this.btService.tours, ['Region', region.ID]);
-      region['Count'] = tours.length;
-    });*/
+    this.regions = this.btService.regions;
+    this.regions.forEach((region) => {
+      const tours = _.filter(this.btService.tours, ['Region', region.ID]);
+      region.Count = tours.length;
+    });
   }
-
 }
