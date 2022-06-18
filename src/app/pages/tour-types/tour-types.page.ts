@@ -8,18 +8,15 @@ import _ from 'lodash';
   styleUrls: ['./tour-types.page.scss'],
 })
 export class TourTypesPage implements OnInit {
+  tourtypes: any;
 
-  //tourtypes: any;
-
-  constructor(public btService: BobToursService) { }
+  constructor(public btService: BobToursService) {}
 
   ngOnInit() {
-    /* this.tourtypes = this.btService.tourtypes;
-    this.tourtypes.forEach(tourtype => {
-      const tours = _.filter(this.btService.tours,
-        ['Tourtype', tourtype.ID]);
-      tourtype['Count'] = tours.length;
-    }); */
+    this.tourtypes = this.btService.tourtypes;
+    this.tourtypes.forEach((tourtype) => {
+      const tours = _.filter(this.btService.tours, ['Tourtype', tourtype.ID]);
+      tourtype.Count = tours.length;
+    });
   }
-
 }
